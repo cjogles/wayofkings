@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Hero } from "@/components/Hero";
 import { MusicCarousel } from "@/components/MusicCarousel";
 import { MusicModal } from "@/components/MusicModal";
+import { MiniPlayer } from "@/components/MiniPlayer";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { MusicPlayerProvider } from "@/components/MusicPlayerContext";
 
@@ -16,13 +17,14 @@ export default function Home() {
 
   return (
     <MusicPlayerProvider>
-      <main className="min-h-screen bg-[var(--background)]">
+      <main className="min-h-screen bg-[var(--background)] pb-36">
         <ThemeToggle />
         <Hero onScrollToMusic={scrollToMusic} />
         <div ref={musicRef}>
           <MusicCarousel />
         </div>
         <MusicModal />
+        <MiniPlayer />
       </main>
     </MusicPlayerProvider>
   );

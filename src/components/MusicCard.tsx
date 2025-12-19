@@ -9,11 +9,11 @@ interface MusicCardProps {
 }
 
 export function MusicCard({ track }: MusicCardProps) {
-  const { setCurrentTrack } = useMusicPlayer();
+  const { openModal } = useMusicPlayer();
 
   return (
     <button
-      onClick={() => setCurrentTrack(track)}
+      onClick={() => openModal(track)}
       className="group relative flex-shrink-0 w-[180px] h-[180px] sm:w-[200px] sm:h-[200px] md:w-[220px] md:h-[220px] rounded-xl overflow-hidden bg-[var(--card-bg)] transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[var(--accent)]/20 cursor-pointer"
     >
       {/* Album artwork */}

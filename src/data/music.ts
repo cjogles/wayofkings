@@ -76,6 +76,7 @@ export const tracks: Track[] = [
     name: "You're in My Spot",
     image: "/music-assets/your-in-my-spot.jpg",
     spotifyEmbedUrl: "https://open.spotify.com/embed/track/2N7QMxZ0ya3EAqWEqZo0of?utm_source=generator&theme=0",
+    imagePosition: "top",
   },
   {
     id: "chasm-kata",
@@ -187,6 +188,7 @@ export const tracks: Track[] = [
     name: "Tarah",
     image: "/music-assets/tarah.webp",
     spotifyEmbedUrl: "https://open.spotify.com/embed/track/7MnKXNK62ijF0Msgxv6Qfy?utm_source=generator&theme=0",
+    imagePosition: "top",
   },
   {
     id: "the-knights-radiant",

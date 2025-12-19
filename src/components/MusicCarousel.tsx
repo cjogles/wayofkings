@@ -22,7 +22,7 @@ export function MusicCarousel() {
 
   // Manual scroll handlers
   const scroll = (direction: "left" | "right") => {
-    const scrollAmount = 240;
+    const scrollAmount = 480; // 2 cards worth
     const rows = [row1Ref.current, row2Ref.current];
 
     rows.forEach((row) => {
