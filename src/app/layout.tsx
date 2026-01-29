@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { MusicPlayerWrapper } from "@/components/MusicPlayerWrapper";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -31,7 +32,9 @@ export default function RootLayout({
         className={`${cinzel.variable} ${inter.variable} antialiased font-sans`}
       >
         <ThemeProvider>
-          {children}
+          <MusicPlayerWrapper>
+            {children}
+          </MusicPlayerWrapper>
         </ThemeProvider>
       </body>
     </html>
