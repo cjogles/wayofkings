@@ -32,7 +32,7 @@ export function NavHint() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-20 left-4 z-[100] animate-fade-in">
+    <div className="fixed top-20 left-16 z-[100] animate-fade-in">
       {/* Arrow pointing up to nav */}
       <div className="flex flex-col items-start">
         <div className="ml-4 animate-bounce">

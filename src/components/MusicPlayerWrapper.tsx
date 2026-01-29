@@ -3,7 +3,6 @@
 import { MusicPlayerProvider } from "./MusicPlayerContext";
 import { MusicModal } from "./MusicModal";
 import { MiniPlayer } from "./MiniPlayer";
-import { NavHint } from "./NavHint";
 
 export function MusicPlayerWrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +10,6 @@ export function MusicPlayerWrapper({ children }: { children: React.ReactNode }) 
       {children}
       <MusicModal />
       <MiniPlayer />
-      <NavHint />
     </MusicPlayerProvider>
   );
 }

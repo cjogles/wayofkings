@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,20 +13,7 @@ const navItems = [
 
 export function NavMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-
-  // Close menu when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   // Close menu when route changes
   useEffect(() => {
@@ -34,7 +21,7 @@ export function NavMenu() {
   }, [pathname]);
 
   return (
-    <div ref={menuRef} className="fixed top-4 left-4 z-50">
+    <div className="fixed top-4 left-4 z-50">
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -68,7 +55,7 @@ export function NavMenu() {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-14 left-0 min-w-[180px] bg-[var(--card-bg)] border border-[var(--border)] rounded-lg shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute top-14 left-0 min-w-[180px] bg-[var(--card-bg)] border border-[var(--border)] rounded-lg shadow-lg overflow-hidden animate-fade-in">
           <nav className="py-2">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
