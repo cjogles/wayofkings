@@ -43,17 +43,21 @@ export function MiniPlayer() {
           </div>
         </div>
       )}
-      <iframe
-        key={currentTrack.id}
-        src={currentTrack.spotifyEmbedUrl}
-        width="100%"
-        height="80"
-        frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="eager"
-        className={`rounded-lg -mt-[28px] ${isLoading ? "invisible" : ""}`}
-        onLoad={() => setIsLoading(false)}
-      />
+      {/* Container that clips overflow on the left, keeping play button visible on right */}
+      <div className="absolute inset-0 flex justify-end">
+        <iframe
+          key={currentTrack.id}
+          src={currentTrack.spotifyEmbedUrl}
+          width="300"
+          height="80"
+          frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="eager"
+          className={`flex-shrink-0 rounded-lg -mt-[28px] ${isLoading ? "invisible" : ""}`}
+          style={{ minWidth: "300px" }}
+          onLoad={() => setIsLoading(false)}
+        />
+      </div>
     </div>
   );
 
