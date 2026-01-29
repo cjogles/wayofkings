@@ -31,7 +31,7 @@ export function MiniPlayer() {
 
   // Shared iframe component
   const spotifyEmbed = (
-    <div className="flex-1 relative min-w-0 h-[60px] overflow-hidden rounded-lg">
+    <div className="flex-1 relative min-w-0 h-[90px] overflow-hidden rounded-lg">
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-[#282828] rounded-lg z-10">
           <div className="flex items-center gap-2 text-[var(--muted)] text-sm">
@@ -44,7 +44,7 @@ export function MiniPlayer() {
         </div>
       )}
       {/* Container that clips overflow on the left, keeping play button visible on right */}
-      <div className="absolute inset-0 flex justify-end">
+      <div className="absolute inset-0 flex justify-end items-center">
         <iframe
           key={currentTrack.id}
           src={currentTrack.spotifyEmbedUrl}
@@ -53,7 +53,7 @@ export function MiniPlayer() {
           frameBorder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="eager"
-          className={`flex-shrink-0 rounded-lg -mt-[28px] ${isLoading ? "invisible" : ""}`}
+          className={`flex-shrink-0 rounded-lg ${isLoading ? "invisible" : ""}`}
           style={{ minWidth: "300px" }}
           onLoad={() => setIsLoading(false)}
         />
@@ -65,10 +65,10 @@ export function MiniPlayer() {
     <div className="fixed bottom-0 left-0 right-0 z-[60] bg-[var(--card-bg)] border-t border-[var(--border)] shadow-2xl">
       {/* Main player area */}
       <div className="flex items-center gap-4 p-3 max-w-7xl mx-auto">
-        {/* Track artwork - always visible */}
+        {/* Track artwork - hidden on small screens */}
         <button
           onClick={() => openModal(currentTrack)}
-          className="relative flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden hover:ring-2 hover:ring-[var(--accent)] transition-all"
+          className="hidden sm:block relative flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden hover:ring-2 hover:ring-[var(--accent)] transition-all"
         >
           <Image
             src={currentTrack.image}
@@ -84,9 +84,9 @@ export function MiniPlayer() {
           </div>
         </button>
 
-        {/* Track info - only in full view */}
+        {/* Track info - hidden on small screens */}
         {!isMinimized && (
-          <div className="flex-shrink-0 min-w-0 w-32 sm:w-40">
+          <div className="hidden sm:block flex-shrink-0 min-w-0 w-32 sm:w-40">
             <p className="text-sm font-medium text-[var(--foreground)] truncate">
               {currentTrack.name}
             </p>
