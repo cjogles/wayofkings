@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { NavMenu } from "@/components/NavMenu";
 
@@ -27,7 +28,7 @@ const races = [
     characters: ["Rock", "his family"],
     traits: "Light tan/fair skin, red hair, large build, strong back molars",
     note: "Parshendi hybrid ancestry",
-    inspiration: "Polynesian-Russian blend",
+    inspiration: "Mongolian-Polynesian-Russian",
   },
   {
     name: "Herdazians",
@@ -54,10 +55,9 @@ const races = [
   {
     name: "Makabaki",
     region: "Former Makabakam",
-    characters: ["Lift", "Gawx", "the Azish"],
+    characters: ["Gawx", "the Azish"],
     traits: "Dark brown/black skin, black hair",
     note: "Notable subgroups: Azish, Emuli, Tukari",
-    inspiration: "Sub-Saharan African",
   },
   {
     name: "Selay",
@@ -83,40 +83,73 @@ const races = [
   {
     name: "Reshi",
     region: "Reshi Isles",
-    characters: [],
+    characters: ["Lift"],
     traits: "Tan skin, straight black hair, rounded features",
-    inspiration: "Hispanic culture representation",
+    inspiration: "Hispanic",
   },
 ];
 
 export default function RacesPage() {
   return (
-    <main className="min-h-screen bg-[var(--background)] pb-20">
+    <main className="min-h-screen bg-[var(--background)] pb-48">
       <NavMenu />
       <ThemeToggle />
 
-      {/* Header */}
-      <section className="pt-20 pb-12 px-6 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--accent)]/5 to-transparent pointer-events-none" />
+      {/* Hero Image */}
+      <section className="relative h-[50vh] min-h-[350px] w-full">
+        <Image
+          src="/assets/people_of_roshar.jpg"
+          alt="People of Roshar"
+          fill
+          className="object-cover object-bottom"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/70 via-transparent to-transparent" />
 
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="absolute top-4 left-20">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[var(--muted)] hover:text-[var(--accent)] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Home
           </Link>
+        </div>
+      </section>
 
+      {/* Header */}
+      <section className="pb-12 px-6 text-center relative overflow-hidden mt-4">
+        <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight mb-4 text-glow">
             Human Races of{" "}
             <span className="text-[var(--accent)]">Roshar</span>
           </h1>
 
-          <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--muted)] max-w-2xl mx-auto mb-4">
             A guide to the ethnicities of Roshar for accurate fan casting
+          </p>
+
+          <p className="text-sm text-[var(--muted)]">
+            Based on{" "}
+            <a
+              href="https://www.17thshard.com/forums/topic/55723-human-races-on-roshar-a-brief-guide-ver10/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--accent)] hover:underline"
+            >
+              17th Shard
+            </a>
+            {" & "}
+            <a
+              href="https://www.tumblr.com/arkadion-of-sages/136888977286/human-races-on-roshar-a-brief-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--accent)] hover:underline"
+            >
+              community research
+            </a>
           </p>
         </div>
       </section>

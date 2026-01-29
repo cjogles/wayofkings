@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/races", label: "Races of Roshar" },
+  { href: "/world-map", label: "World Map" },
+  { href: "/fan-casting", label: "Fan Casting" },
 ];
 
 export function NavMenu() {
